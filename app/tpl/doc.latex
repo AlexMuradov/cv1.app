@@ -1,0 +1,209 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+\begin{document}
+
+
+\begin{center}
+    {\Huge \scshape Name Surname} \\ \vspace{1pt}
+    Street. 33 12345 Berlin, Germany (Nationality: German)\\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ +123 345566778 ~ {\raisebox{-0.2\height}\faEnvelope\  \underline{email@hotmail.com}} ~ 
+    {\raisebox{-0.2\height}\faGithub\ \underline{github.com/mygithub}}
+    \vspace{-8pt}
+\end{center}
+
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {I'm a Senior DevOps Engineer higly experienced in AWS, Azure, Kubernetes, CI/CD, Docker, Terraform, Ansible etc. \\
+          I'm based in Germany (EU National). I'm open to long-term permanent or short-term contract works.}{}
+          \vspace{-18pt}
+    \resumeSubHeadingListEnd
+\vspace{5pt}
+
+\section{Experience}
+ \vspace{5pt}
+    \resumeSubHeadingListStart
+        \resumeSubheading
+      {DevOps Consultant (Contractor)}{Aug 2022 -- Dec 2022}
+      {Comapny 1 (Freelance DevOps contractor, Platform: Azure, IaaC: Ansible)}{Germany}
+      \resumeItemListStart
+        \resumeItem{Azure, Kubernetes, Ansible, Helm, Terraform, Docker, GraphQL, Gitlab, Packer, Velero, ELK}
+      \resumeItemListEnd
+      
+      
+        \resumeSubheading
+      {Senior DevOps Engineer}{Sep 2021 -- Aug 2022}
+      {Company 2 (AWS, Openshift, Rancher, Kubernetes, GitLab, Helm, ELK, Terraform)}{Germany}
+      \resumeItemListStart
+        \resumeItem{Infra: Managing AWS (Autoscaling, Spots, EC2s, Storages, EKS) and On-premise infrastructure}
+        \resumeItem{Orchestration: Kubernetes and Redhat Openshift both with Helm}
+        \resumeItem{CI/CD stack: Gitlab, AWS CodePipeline, Docker, Harbor, Artifactory, ArgoCD}
+        \resumeItem{Observability: Grafana, Prometeus, ELK}
+        \resumeItem{IaaC with: Terraform and AWS SSM}
+        \resumeItem{Other: Velero, Vault, Consul, Packer}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {Software Engineer, DevOps}{Nov 2020 -- Aug 2021}
+      {Company 3 (Terraform, Kubernetes, Docker, Jenkins, Python)}{Germany}
+      \resumeItemListStart
+        \resumeItem{Created and maintained AWS Infrastructure on Terraform}
+        \resumeItem{Created and maintained CI/CD pipeline on Jenkins}
+        \resumeItem{Managined Kubernetes cluster}
+        \resumeItem{Developed an API Python/Flask for the IoT products}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Engineer, (BI/Devops)}{June 2017 -- Nov 2020}
+      {Company 4 (AWS, Terraform, Python, React, PowerBI)}{Germany}
+      \resumeItemListStart
+        \resumeItem{Created and managed suite of management information reports in PowerBI}
+        \resumeItem{Created data pipelines using AWS Kinesis and S3}
+        \resumeItem{Developed a workflow application for payments team with React frontend and Python}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+      {Business Intelligence Engineer}{June 2016 -- June 2017}
+      {Company 5 (Python, SQL, Flask, PowerBI)}{Germany}
+    \resumeSubheading
+      {Data Engineer}{June 2013 -- June 2016 }
+      {Company 6 (Python, VBA)}{Germany}
+    \resumeSubheading
+      {Full-Stack Developer}{2009 -- Aug 2011 }
+      {Company 7 (PHP, MySQL, JavaScript)}{Ukraine}
+\vspace{-1pt}
+
+
+\section{Certifications}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{AWS Certified DevOps Engineer Professional} $|$ \emph{Amazon Web Services}}{}
+          \vspace{-23pt}
+      \resumeProjectHeading
+          {\textbf{AWS Certified Solutions Architect Associate} $|$ \emph{Amazon Web Services}}{}
+          \vspace{-23pt}
+      \resumeProjectHeading
+          {\textbf{Certified Terraform Cloud Engineer} $|$ \emph{HashiCorp}}{}
+          \vspace{-23pt}
+      \resumeProjectHeading
+          {\textbf{CKA, CKAD, CKS} $|$ \emph{ Linux Foundation}}{}
+          \vspace{-23pt}
+
+    \resumeSubHeadingListEnd
+\vspace{5pt}
+
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of 4321}{2011 -- 2013}
+      {Master of Science in Finance}{Germany}
+    \resumeSubheading
+      {University 1234}{2006 -- 2009}
+      {Bachelor of Science in Economics}{Ukraine}
+  \resumeSubHeadingListEnd
+
+\section{Technical Skills}
+ \vspace{3pt}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Go, Python, PHP, JavaScript, SQL} \\
+     \vspace{5pt}
+     \textbf{Technologies/Frameworks}{: Terraform, Ansible, AWS, ELK, Gitlab, Harbor, Helm, Jenkins, Docker, Kubernetes, Flask} \\
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+    \resumeSubHeadingListEnd
+
+\end{document}

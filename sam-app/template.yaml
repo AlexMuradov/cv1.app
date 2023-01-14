@@ -1,0 +1,104 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  sam-app
+
+  Sample SAM Template for sam-app
+
+Parameters:
+  APIName:
+    Type: String
+  APIKeyExpiration:
+    Type: Number
+
+Resources:
+  LambdaRoleForAppSync:
+    Type: AWS::IAM::Role
+    Properties: 
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs"
+      AssumeRolePolicyDocument: 
+        Version: "2012-10-17"
+        Statement: 
+          - Effect: "Allow"
+            Principal: 
+              Service: 
+                - "appsync.amazonaws.com"
+            Action: 
+              - "sts:AssumeRole"
+
+  LambdaPolicyForAppSync:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      Path: /
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Action:
+            - lambda:*
+            Resource:
+             - !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:test1
+
+  GraphQLApi:
+    Type: AWS::AppSync::GraphQLApi
+    Properties:
+      Name: !Ref APIName
+      AuthenticationType: API_KEY
+      LogConfig:
+        CloudWatchLogsRoleArn: !GetAtt LambdaRoleForAppSync.Arn
+        ExcludeVerboseContent: FALSE
+        FieldLogLevel: ALL
+
+  GraphQLApiSchema:
+    Type: AWS::AppSync::GraphQLSchema
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      Definition: |
+        schema {
+          query: Query
+        }
+
+        type Data {
+        	data: String!
+        }
+
+        type Query {
+        	getData(
+        		key: String!
+        	): Data!
+        }
+
+  AppSyncDataSource:
+    Type: AWS::AppSync::DataSource
+    Properties: 
+      ApiId: !GetAtt GraphQLApi.ApiId
+      LambdaConfig: 
+          LambdaFunctionArn: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:test1
+      Name: !Ref APIName
+      ServiceRoleArn: !GetAtt LambdaRoleForAppSync.Arn
+      Type: AWS_LAMBDA
+
+  # AppSyncResolverInvokeGet:
+  #   Type: AWS::AppSync::Resolver
+  #   DependsOn: GraphQLApiSchema
+  #   Properties:
+  #     ApiId: !GetAtt GraphQLApi.ApiId
+  #     TypeName: Query
+  #     FieldName: getData
+  #     DataSourceName: !GetAtt AppSyncDataSource.Name
+
+  AppSyncAPIKey:
+      Type: AWS::AppSync::ApiKey
+      Properties:
+        ApiId: !GetAtt GraphQLApi.ApiId
+        Expires: !Ref APIKeyExpiration
+
+Outputs:
+  APIKey:
+    Description: API Key
+    Value: !GetAtt AppSyncAPIKey.ApiKey
+
+  GraphQL:
+    Description: GraphQL URL
+    Value: !GetAtt GraphQLApi.GraphQLUrl

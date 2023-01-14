@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: tex
+  name: tex
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tex
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: tex
+    spec:
+      containers:
+      - image: ubuntu
+        name: ubuntu
+        command: ["/bin/sh", "-c", "while true; do foo; sleep 30; done"]
+status: {}

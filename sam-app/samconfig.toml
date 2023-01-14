@@ -1,0 +1,13 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "sam2"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-2zohlip11p0a"
+s3_prefix = "sam2"
+region = "eu-central-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+parameter_overrides = "APIName=\"test2\" APIKeyExpiration=\"1683905258\""
+image_repositories = []
